@@ -4,6 +4,7 @@ import br.com.fiap.entregas.dto.EntregaDto;
 import br.com.fiap.entregas.dto.EntregaExibicaoDto;
 import br.com.fiap.entregas.exception.EntregaNaoEncotradaException;
 import br.com.fiap.entregas.model.Entrega;
+import br.com.fiap.entregas.model.StatusEntrega;
 import br.com.fiap.entregas.repository.EntregaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,25 +19,38 @@ public class EntregaService {
     @Autowired
     private EntregaRepository entregaRepository;
 
-    public EntregaExibicaoDto criar(EntregaDto entregaDto){
+    public void colocarEmEntrega(Long numeroPedido) {
+        Optional<Entrega> entregaOptional = entregaRepository.findByNumeroPedido(numeroPedido);
+
+        if (!entregaOptional.isPresent()) {
+            throw new EntregaNaoEncotradaException("Entrega não encontrada!");
+        }
+        Entrega entrega = entregaOptional.get();
+        entrega.setStatusEntrega(StatusEntrega.EM_TRANSPORTE);
+        entregaRepository.save(entrega);
+    }
+
+    public EntregaExibicaoDto criar(EntregaDto entregaDto) {
         Entrega entrega = new Entrega();
         BeanUtils.copyProperties(entregaDto, entrega);
+
+        entrega.setStatusEntrega(StatusEntrega.EM_SEPARACAO);
         Entrega entregaCriada = entregaRepository.save(entrega);
 
         return new EntregaExibicaoDto(entregaCriada);
     }
 
-    public EntregaExibicaoDto buscarPorNumero(Long numeroEntrega){
+    public EntregaExibicaoDto buscarPorNumero(Long numeroEntrega) {
         Optional<Entrega> entregaOptional = entregaRepository.findById(numeroEntrega);
 
-        if (entregaOptional.isPresent()){
+        if (entregaOptional.isPresent()) {
             return new EntregaExibicaoDto(entregaOptional.get());
         } else {
             throw new EntregaNaoEncotradaException("Entrega não encontrada!");
         }
     }
 
-    public List<EntregaExibicaoDto> listarTodasAsEntregas(){
+    public List<EntregaExibicaoDto> listarTodasAsEntregas() {
         return entregaRepository
                 .findAll()
                 .stream()
@@ -44,17 +58,17 @@ public class EntregaService {
                 .toList();
     }
 
-    public void excluir(Long numeroEntrega){
+    public void excluir(Long numeroEntrega) {
         Optional<Entrega> entregaOptional = entregaRepository.findById(numeroEntrega);
 
-        if (entregaOptional.isPresent()){
+        if (entregaOptional.isPresent()) {
             entregaRepository.delete(entregaOptional.get());
         } else {
             throw new RuntimeException("Entrega não encontrada!");
         }
     }
 
-    public EntregaExibicaoDto atualizar(EntregaDto entregaDto){
+    public EntregaExibicaoDto atualizar(EntregaDto entregaDto) {
         Entrega entrega = new Entrega();
         BeanUtils.copyProperties(entregaDto, entrega);
         Entrega entregaAtualizada = entregaRepository.save(entrega);

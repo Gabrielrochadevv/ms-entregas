@@ -18,6 +18,11 @@ public class EntregaController {
     @Autowired
     private EntregaService service;
 
+    @PutMapping("/{numeroPedido}/transporte")
+    public void colocarEmTransporte(@PathVariable Long numeroPedido){
+        service.colocarEmEntrega(numeroPedido);
+    }
+
     @PostMapping
     public EntregaExibicaoDto criar(@RequestBody @Valid EntregaDto entregaDto){
         return service.criar(entregaDto);
