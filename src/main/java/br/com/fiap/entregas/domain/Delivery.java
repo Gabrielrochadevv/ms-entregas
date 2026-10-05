@@ -1,4 +1,4 @@
-package br.com.fiap.entregas.model;
+package br.com.fiap.entregas.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -21,19 +21,18 @@ public class Delivery {
     @Column(name = "delivery_number")
     private Long deliveryNumber;
 
-    @Column(name = "order_number")
-    @NotNull
     @Positive
+    @Column(name = "order_number", nullable = false)
     private Long orderNumber;
 
     @Column(name = "delivery_person_name")
     private String deliveryPersonName;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "delivery_status")
+    @Column(name = "delivery_status", nullable = false)
     private DeliveryStatus deliveryStatus;
 
-    @Column(name = "delivery_date")
+    @Column(name = "delivery_date", nullable = false)
     private LocalDate deliveryDate;
 
 }
