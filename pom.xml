@@ -12,7 +12,7 @@
 	<artifactId>entregas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>entregas</name>
-	<description>Gateway</description>
+	<description>Microsserviço de gerenciamento de entregas</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
