@@ -1,4 +1,4 @@
-package br.com.fiap.entregas;
+package br.com.entregas;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;

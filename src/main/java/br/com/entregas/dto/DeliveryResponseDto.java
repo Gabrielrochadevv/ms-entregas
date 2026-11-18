@@ -1,7 +1,7 @@
-package br.com.fiap.entregas.dto;
+package br.com.entregas.dto;
 
-import br.com.fiap.entregas.domain.Delivery;
-import br.com.fiap.entregas.domain.DeliveryStatus;
+import br.com.entregas.domain.Delivery;
+import br.com.entregas.domain.DeliveryStatus;
 
 import java.time.LocalDate;
 

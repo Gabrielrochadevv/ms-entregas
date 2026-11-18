@@ -1,4 +1,4 @@
-package br.com.fiap.entregas.domain;
+package br.com.entregas.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

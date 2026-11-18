@@ -1,8 +1,8 @@
-package br.com.fiap.entregas.controller;
+package br.com.entregas.controller;
 
-import br.com.fiap.entregas.dto.DeliveryRequestDto;
-import br.com.fiap.entregas.dto.DeliveryResponseDto;
-import br.com.fiap.entregas.service.DeliveryService;
+import br.com.entregas.dto.DeliveryRequestDto;
+import br.com.entregas.dto.DeliveryResponseDto;
+import br.com.entregas.service.DeliveryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

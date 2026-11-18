@@ -1,4 +1,4 @@
-package br.com.fiap.entregas.exception;
+package br.com.entregas.exception;
 
 public class DeliveryNotFoundException extends RuntimeException {
     public DeliveryNotFoundException(String mensagem) {

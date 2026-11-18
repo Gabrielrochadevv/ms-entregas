@@ -1,4 +1,4 @@
-package br.com.fiap.entregas.dto;
+package br.com.entregas.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

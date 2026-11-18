@@ -1,11 +1,11 @@
-package br.com.fiap.entregas.service;
+package br.com.entregas.service;
 
-import br.com.fiap.entregas.dto.DeliveryRequestDto;
-import br.com.fiap.entregas.dto.DeliveryResponseDto;
-import br.com.fiap.entregas.exception.DeliveryNotFoundException;
-import br.com.fiap.entregas.domain.Delivery;
-import br.com.fiap.entregas.domain.DeliveryStatus;
-import br.com.fiap.entregas.repository.DeliveryRepository;
+import br.com.entregas.dto.DeliveryRequestDto;
+import br.com.entregas.dto.DeliveryResponseDto;
+import br.com.entregas.exception.DeliveryNotFoundException;
+import br.com.entregas.domain.Delivery;
+import br.com.entregas.domain.DeliveryStatus;
+import br.com.entregas.repository.DeliveryRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
